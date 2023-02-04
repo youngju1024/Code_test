@@ -1,4 +1,5 @@
 #https://school.programmers.co.kr/learn/courses/30/lessons/142085
+from heapq import heappush,heappop
 
 def solution(n, k, enemy):
     answer = 0
@@ -18,3 +19,4 @@ def solution(n, k, enemy):
             break;
     return answer
 
+print()
