@@ -4,20 +4,20 @@ def can_go(n,m,x,y,r,c,wx,wy,k):
     if(wx != 0):
         if(x + wx > n or x + wx <= 0):
             return False
-        if(abs(x + wx - r) + abs(y - c) > k):
+        if(abs(x + wx - r) + abs(y - c) > k-1):
             return False
     else:
         if(y + wy > m or y + wy <= 0):
             return False
-        if(abs(x - r) + abs(y + wy - c) > k):
+        if(abs(x - r) + abs(y + wy - c) > k-1):
             return False
     return True
 def solution(n, m, x, y, r, c, k):
     answer = ''
     now_x = x
     now_y = y
-    if(((x - r) + (y-c) - k) %2 == 1):
-        #return 'impossible'
+    if((x - r) + (y-c) - k) %2 == 1 or (abs(x-r) + abs(y-c) > k):
+        return 'impossible'
     while(k>0):
         if(can_go(n,m,now_x,now_y,r,c,1,0,k)):
             answer += 'd'
